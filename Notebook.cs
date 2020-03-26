@@ -279,6 +279,7 @@ namespace NotebookLab
                                         ClearCurrentConsoleLine(1);
                                         Console.ForegroundColor = ConsoleColor.Cyan;
                                         Console.WriteLine($"{row} - Such row already exist");
+                                        Console.ForegroundColor = Design.textColor;
                                         System.Threading.Thread.Sleep(2000);
                                     }
                                 }
