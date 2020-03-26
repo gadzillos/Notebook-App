@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NotebookLab
 {
@@ -20,7 +16,7 @@ namespace NotebookLab
         private string organization;
         private string birthday;
         private string job;
-        public Dictionary<string,string> additionalNotes = new Dictionary<string, string>();
+        public Dictionary<string, string> additionalNotes = new Dictionary<string, string>();
         public static List<string> lockedFields = new List<string>() { "first name", "last name", "middle name",
         "number", "country", "organization", "birth date", "job"};
         public Note()
@@ -28,6 +24,7 @@ namespace NotebookLab
             this.id = (Notebook.notes.Count == 0) ? 0 : Notebook.notes.Count;
             this.fieldsNumber = requierdFields;
         }
+        
         public string LastName
         {
             get
@@ -115,7 +112,7 @@ namespace NotebookLab
         {
             get
             {
-                return this.firstName; 
+                return this.firstName;
             }
             set
             {

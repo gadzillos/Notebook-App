@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NotebookLab
 {
@@ -201,7 +197,7 @@ namespace NotebookLab
                         }
                     case MachineState.Read:
                         {
-                            ReadMarker:
+                        ReadMarker:
                             currentState = MachineState.Read;
                             ReadNote(notes[readId]);
                             while (true)
@@ -318,7 +314,7 @@ namespace NotebookLab
                             }
                             goto case MachineState.Read;
                         }
-                    
+
                     case MachineState.Delete:
                         {
                             currentState = MachineState.Delete;
@@ -403,7 +399,7 @@ namespace NotebookLab
         public static void ReadNote(Note note)
         {
             Menu.ReadState();
-            var table = new ConsoleTables.ConsoleTable("1","Last name",note.LastName);
+            var table = new ConsoleTables.ConsoleTable("1", "Last name", note.LastName);
             table.AddRow("2", "First Name", note.FirstName)
                  .AddRow("3", "Middle Name", note.MiddleName)
                  .AddRow("4", "Number", note.Number)

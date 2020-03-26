@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 // Still resiezable with some windows features and commands (e.g., Alt + Enter)
 
 namespace NotebookLab
 {
-    class ForbidResize 
+    class ForbidResize
     {
         private const int MF_BYCOMMAND = 0x00000000;
         public const int SC_CLOSE = 0xF060;

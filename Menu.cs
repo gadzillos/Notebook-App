@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NotebookLab
 {
@@ -11,18 +8,27 @@ namespace NotebookLab
     {
         public static Dictionary<string, ConsoleKey> buttons = new Dictionary<string, ConsoleKey>
         {
-            ["Home"] = ConsoleKey.Escape, ["Settings"] = ConsoleKey.P, ["Create"] = ConsoleKey.C,
-            ["ShowAll"] = ConsoleKey.S, ["ShowSimple"] = ConsoleKey.Q, ["Find"] = ConsoleKey.F,
-            ["Read"] = ConsoleKey.R, ["Delete"] = ConsoleKey.Delete,
-            ["OrderByLName"] = ConsoleKey.D1, ["OrderByOrganization"] = ConsoleKey.D2, ["OrderByJob"] = ConsoleKey.D3,
-            ["AddRow"] = ConsoleKey.A, ["EditRow"] = ConsoleKey.E, ["RemoveRow"] = ConsoleKey.X,
+            ["Home"] = ConsoleKey.Escape,
+            ["Settings"] = ConsoleKey.P,
+            ["Create"] = ConsoleKey.C,
+            ["ShowAll"] = ConsoleKey.S,
+            ["ShowSimple"] = ConsoleKey.Q,
+            ["Find"] = ConsoleKey.F,
+            ["Read"] = ConsoleKey.R,
+            ["Delete"] = ConsoleKey.Delete,
+            ["OrderByLName"] = ConsoleKey.D1,
+            ["OrderByOrganization"] = ConsoleKey.D2,
+            ["OrderByJob"] = ConsoleKey.D3,
+            ["AddRow"] = ConsoleKey.A,
+            ["EditRow"] = ConsoleKey.E,
+            ["RemoveRow"] = ConsoleKey.X,
         };
         public const int menuPosition = 4;
         public static ConsoleColor menuColor = ConsoleColor.DarkGray;
         public static void HomeState()
         {
             Design.Draw();
-            var menu = new ConsoleTables.ConsoleTable($"<{buttons["Create"].ToString()}>:Create new note", $"<{buttons["ShowAll"].ToString()}>:All notes", 
+            var menu = new ConsoleTables.ConsoleTable($"<{buttons["Create"].ToString()}>:Create new note", $"<{buttons["ShowAll"].ToString()}>:All notes",
                 $"<{buttons["ShowSimple"].ToString()}>:SimpleNotes", $"<{buttons["Find"].ToString()}>:Find", $"<{buttons["Settings"].ToString()}>:Settings");
             Console.ForegroundColor = menuColor;
             menu.Write();

@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using System.Reflection;
 using System.Text.RegularExpressions;
 
 // This class will let you print a nicely formatted table right to your console as easily as possible.
