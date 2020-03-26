@@ -274,6 +274,13 @@ namespace NotebookLab
                                     catch (NullReferenceException)
                                     {
                                     }
+                                    catch (ArgumentException)
+                                    {
+                                        ClearCurrentConsoleLine(1);
+                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                        Console.WriteLine($"{row} - Such row already exist");
+                                        System.Threading.Thread.Sleep(2000);
+                                    }
                                 }
                                 if (key == ConsoleKey.X) // Remove row
                                 {
@@ -286,7 +293,7 @@ namespace NotebookLab
                                         Console.ForegroundColor = ConsoleColor.Cyan;
                                         Console.Write("You can't remove default rows");
                                         Console.ForegroundColor = Design.textColor;
-                                        System.Threading.Thread.Sleep(2000);
+                                        System.Threading.Thread.Sleep(4000);
                                         goto case MachineState.Read;
                                     }
                                     else
