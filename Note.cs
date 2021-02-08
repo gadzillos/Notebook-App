@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
+// Bug - birth date value
+
 namespace NotebookLab
 {
     public class Note
@@ -164,7 +166,7 @@ namespace NotebookLab
                 {
                     Notebook.ClearCurrentConsoleLine(1);
                     Console.SetCursorPosition(0, Console.CursorTop - 1);
-                    value = value.Substring(0, 1).ToUpper() + value.Substring(1, value.Length - 1);
+                    value = value.Substring(0, 1).ToUpper() + value.Substring(1, value.Length - 1);  // Exception must be handled
                     Console.Write("Middle name: " + value + "\n");
                     this.middleName = value;
                 }

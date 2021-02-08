@@ -17,7 +17,7 @@ namespace NotebookLab
         public const bool sudo = false;
         public static void Start()
         {
-            Console.BackgroundColor = Design.Backround;
+            Console.BackgroundColor = Design.background;
             Console.ForegroundColor = Design.textColor;
             Console.Clear();
             string decision;
