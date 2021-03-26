@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 
 namespace NotebookLab
 {
@@ -329,15 +330,50 @@ namespace NotebookLab
                     case MachineState.Settings:
                         {
                             currentState = MachineState.Settings;
-                            Menu.Settings();
-                            Console.WriteLine("Nothing here...");
+                            int frontColorNumber = 0;
+                            int backColorNumber = 0;
                             while (true)
                             {
-                                if (Console.ReadKey().Key == ConsoleKey.Escape)
+                                if (Design.textColor == Design.background)
+                                {
+                                    Design.background = ConsoleColor.Black;
+                                    Design.textColor = ConsoleColor.White;
+                                }
+                                Menu.Settings();
+                                var key = Console.ReadKey().Key;
+                                ClearCurrentConsoleLine(0);
+                                if (key == ConsoleKey.UpArrow)
+                                {
+                                    backColorNumber = (backColorNumber == 0) ? 16 : backColorNumber;
+                                    backColorNumber--;
+                                    Design.background = Design.colors[backColorNumber];
+                                    Console.BackgroundColor = Design.colors[backColorNumber];
+                                }
+                                if (key == ConsoleKey.DownArrow)
+                                {
+                                    backColorNumber = (backColorNumber == 15) ? 0 : backColorNumber;
+                                    backColorNumber++;
+                                    Design.background = Design.colors[backColorNumber];
+                                    Console.BackgroundColor = Design.colors[backColorNumber];
+                                }
+                                if (key == ConsoleKey.LeftArrow)
+                                {
+                                    frontColorNumber = (frontColorNumber == 0) ? 16 : frontColorNumber;
+                                    frontColorNumber--;
+                                    Design.textColor = Design.colors[frontColorNumber];
+                                    Console.ForegroundColor = Design.colors[frontColorNumber];
+                                }
+                                if (key == ConsoleKey.RightArrow)
+                                {
+                                    frontColorNumber = (frontColorNumber == 15) ? 0 : frontColorNumber;
+                                    frontColorNumber++;
+                                    Design.textColor = Design.colors[frontColorNumber];
+                                    Console.ForegroundColor = Design.colors[frontColorNumber];
+                                }
+                                if (key == ConsoleKey.Escape)
                                 {
                                     goto case MachineState.Home;
                                 }
-                                ClearCurrentConsoleLine(0);
                             }
                         }
                     default:

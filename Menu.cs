@@ -22,6 +22,10 @@ namespace NotebookLab
             ["AddRow"] = ConsoleKey.A,
             ["EditRow"] = ConsoleKey.E,
             ["RemoveRow"] = ConsoleKey.X,
+            ["NextTextColor"] = ConsoleKey.RightArrow,
+            ["PrevTextColor"] = ConsoleKey.LeftArrow,
+            ["NextBackColor"] = ConsoleKey.UpArrow,
+            ["PrevBackColor"] = ConsoleKey.DownArrow,
         };
         public const int menuPosition = 4;
         public static ConsoleColor menuColor = ConsoleColor.DarkGray;
@@ -88,7 +92,11 @@ namespace NotebookLab
         public static void Settings()
         {
             Design.Draw();
-            var menu = new ConsoleTables.ConsoleTable($"<{buttons["Home"].ToString()}>:Home");
+            var menu = new ConsoleTables.ConsoleTable($"<{buttons["Home"].ToString()}>:Home",
+                $"<{buttons["NextBackColor"].ToString()}>:Next backround color",
+                $"<{buttons["PrevBackColor"].ToString()}>:Previous background color",
+                $"<{buttons["NextTextColor"].ToString()}>:Next foreground color",
+                $"<{buttons["PrevTextColor"].ToString()}>:Previous foreground color");
             Console.ForegroundColor = menuColor;
             menu.Write();
             Console.ForegroundColor = Design.textColor;
